@@ -1,16 +1,11 @@
 # ⚠️ THIS REPO IS PUBLIC AND SERVES GITHUB PAGES.
 # Anything committed here is world-readable at chilcode.github.io/niemeyer-demo/.
+#
+# This repo is the throwaway concept demo ONLY. The real project — client
+# material, call transcripts, briefs, planning — lives in ../niemeyer and must
+# never be copied here.
 
-# Client source material — call transcripts, private notes, assets he sends us.
-# The 2026-07-27 call transcript alone contains Michael's revenue targets, his
-# broker's income, and candid opinions about people. Never publish it.
 context/
-
-# Internal planning — briefs, prompts, pricing thinking, project state.
-.planning/
-
-# Both live on disk and are shared by every local session. They are simply not
-# published. If this repo ever goes private, revisit.
 
 node_modules
 .DS_Store
