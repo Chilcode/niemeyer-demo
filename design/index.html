@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Michael Niemeyer — design concepts</title>
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<style>
+  :root{
+    --royal:#0F4C86; --royal-deep:#0A2F52; --gold:#BF9B4F; --gold-deep:#8C6D2E;
+    --bg:#F7F5F0; --surface:#fff; --fg:#111827; --muted:#5B6472; --border:#DAD4C4;
+    --body:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+    --display:'Iowan Old Style','Palatino Linotype',Georgia,serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#0E1526;--surface:#161F35;--fg:#F2F0E8;--muted:#9AA5B8;--border:#2C3B5C;--gold-deep:#D8B96A;}
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);line-height:1.6}
+  .wrap{max-width:940px;margin-inline:auto;padding:0 24px}
+  header{background:var(--royal-deep);color:#fff;padding-block:52px 44px}
+  h1{font-family:var(--display);font-size:clamp(2rem,4vw,2.9rem);margin:.2em 0 .3em;line-height:1.1}
+  .kicker{color:var(--gold);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin:0}
+  header p{color:#D9E1EC;max-width:56ch;margin:0}
+  .note{background:var(--gold);color:#17120A;font-size:.82rem;font-weight:600;padding:10px 24px;text-align:center}
+  .note span{font-weight:400;opacity:.85}
+  main{padding-block:44px 64px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:28px}
+  a.card{display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:20px;transition:border-color .15s ease,transform .15s ease}
+  a.card:hover{border-color:var(--gold);transform:translateY(-2px)}
+  a.card b{display:block;font-family:var(--display);font-size:1.15rem;margin-bottom:4px}
+  a.card span{color:var(--muted);font-size:.88rem}
+  .lead{max-width:62ch;color:var(--muted)}
+  h2{font-family:var(--display);font-size:1.4rem;margin:40px 0 10px}
+  ul{max-width:62ch;color:var(--muted);padding-left:1.2em}
+  li{margin-bottom:6px}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<div class="note">Design concepts — <span>not a live site. Photography is placeholder; nothing here is published.</span></div>
+
+<header>
+  <div class="wrap">
+    <p class="kicker">Chilcode Systems · concept round 2</p>
+    <h1>Michael Niemeyer — site design</h1>
+    <p>Seven page templates in Royals navy and gold. Click any one to view it full size. Best viewed on a phone as well as desktop — a lot of your traffic will arrive from an open-house flyer.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="lead">These are static design concepts, not a working site. Forms don't submit, the home search doesn't return real listings yet, and every photo slot is a marked placeholder.</p>
+
+  <div class="grid">
+    <a class="card" href="home-v2.html"><b>Home</b><span>King of the Northland</span></a>
+    <a class="card" href="buyer-search-v2.html"><b>Home search</b><span>Buyer path — not Zillow</span></a>
+    <a class="card" href="equity-snapshot-v2.html"><b>Equity Snapshot</b><span>Seller path — your existing offer</span></a>
+    <a class="card" href="blog-index-v2.html"><b>Writing</b><span>Blog index</span></a>
+    <a class="card" href="article-v2.html"><b>Article</b><span>The template your leads come through</span></a>
+    <a class="card" href="areas-v2.html"><b>Areas I Serve</b><span>Clay &amp; Platte counties</span></a>
+    <a class="card" href="about-v2.html"><b>About</b><span>Trainer to REALTOR®</span></a>
+  </div>
+
+  <h2>What to look at</h2>
+  <ul>
+    <li><b>The article template</b> matters most. Your lead model runs through it — free value, then a call to action at the end of every post.</li>
+    <li><b>The two lead paths.</b> Buyer search and Equity Snapshot both need to feel worth filling out.</li>
+    <li><b>The proof numbers.</b> $7.82M, 27 transactions, 5.0 across 36 reviews, RealTrends top 1.5%.</li>
+    <li><b>Your hours.</b> Daily 8AM–9PM is a real differentiator, so it's given real estate on the page.</li>
+  </ul>
+
+  <h2>What's still missing</h2>
+  <ul>
+    <li><b>Photography.</b> Every image is a grey placeholder. This is the single biggest thing standing between this and a finished site — a real estate site made of grey boxes reads as unfinished no matter how good the type is.</li>
+    <li><b>Reviews.</b> No testimonials appear anywhere, because we don't have the text of any of your 36 and we won't invent them.</li>
+    <li><b>Missouri compliance.</b> The footer disclosure and your license number are marked placeholders pending MREC verification.</li>
+    <li><b>Live home search.</b> Requires an IDX feed from Heartland MLS, which needs your and your broker's signatures.</li>
+  </ul>
+</main>
+
+</body>
+</html>
