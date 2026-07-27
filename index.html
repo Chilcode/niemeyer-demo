@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Michael Niemeyer — Site Concept</title>
+
+<!--
+  Search engines must not index this page.
+
+  It carries a real, licensed agent's name, phone number, and brokerage next to
+  invented listings. If it surfaced in a search for him it could be mistaken for
+  his live site, and advertising invented inventory under a licensee's name is a
+  compliance problem for HIM. Concept only. Do not remove.
+-->
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Private design concept. Not a live real estate website.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+
+<style>
+  :root {
+    --ink:        #0A1826;
+    --navy:       #143352;
+    --navy-soft:  #1D4265;
+    --brass:      #D3A250;
+    --brass-dim:  #A87C31;
+    --paper:      #EFF2F6;
+    --card:       #FFFFFF;
+    --muted:      #5C6B7A;
+    --line:       rgba(10, 24, 38, 0.12);
+
+    --bg:         var(--paper);
+    --fg:         var(--ink);
+    --fg-muted:   var(--muted);
+    --surface:    var(--card);
+    --band:       var(--ink);
+    --band-fg:    #E8EDF3;
+    --band-muted: rgba(232, 237, 243, 0.62);
+
+    --display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --data: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace;
+
+    --step-0: 1rem;
+    --step-1: 1.15rem;
+    --step-2: 1.4rem;
+    --step-3: 1.85rem;
+    --step-4: 2.6rem;
+    --step-5: clamp(2.6rem, 6vw, 4.15rem);
+
+    --wrap: 1180px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:         #071220;
+      --fg:         #E8EDF3;
+      --fg-muted:   #94A6B8;
+      --surface:    #0E2032;
+      --line:       rgba(232, 237, 243, 0.14);
+      --band:       #050D18;
+      --band-fg:    #E8EDF3;
+      --band-muted: rgba(232, 237, 243, 0.58);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg:         #071220;
+    --fg:         #E8EDF3;
+    --fg-muted:   #94A6B8;
+    --surface:    #0E2032;
+    --line:       rgba(232, 237, 243, 0.14);
+    --band:       #050D18;
+    --band-fg:    #E8EDF3;
+    --band-muted: rgba(232, 237, 243, 0.58);
+  }
+
+  :root[data-theme="light"] {
+    --bg:         var(--paper);
+    --fg:         var(--ink);
+    --fg-muted:   var(--muted);
+    --surface:    var(--card);
+    --line:       rgba(10, 24, 38, 0.12);
+    --band:       var(--ink);
+    --band-fg:    #E8EDF3;
+    --band-muted: rgba(232, 237, 243, 0.62);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--body);
+    font-size: var(--step-0);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--display);
+    font-weight: 600;
+    line-height: 1.1;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 2px solid var(--brass);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: var(--wrap);
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  .eyebrow {
+    font-family: var(--body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin: 0;
+  }
+
+  /* ── Demo ribbon ─────────────────────────────────────────────── */
+  .ribbon {
+    background: var(--brass);
+    color: #17120A;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-align: center;
+    padding: 9px 24px;
+  }
+  .ribbon span { font-weight: 400; opacity: 0.82; }
+
+  /* ── Nav ─────────────────────────────────────────────────────── */
+  .nav {
+    background: var(--band);
+    color: var(--band-fg);
+    border-bottom: 1px solid rgba(211, 162, 80, 0.22);
+  }
+  .nav-in {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 76px;
+    flex-wrap: wrap;
+    padding-block: 12px;
+  }
+  .mark { display: flex; align-items: baseline; gap: 10px; }
+  .mark strong {
+    font-family: var(--display);
+    font-size: 1.32rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .mark em {
+    font-style: normal;
+    font-family: var(--body);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--brass);
+  }
+  .nav ul {
+    display: flex;
+    gap: 26px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+  .nav ul a {
+    text-decoration: none;
+    font-size: 0.86rem;
+    color: var(--band-muted);
+    padding-block: 4px;
+    border-bottom: 1px solid transparent;
+    transition: color 160ms ease, border-color 160ms ease;
+  }
+  .nav ul a:hover { color: var(--band-fg); border-bottom-color: var(--brass); }
+  .nav-tel {
+    font-family: var(--data);
+    font-size: 0.86rem;
+    color: var(--brass);
+    text-decoration: none;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── Hero ────────────────────────────────────────────────────── */
+  .hero {
+    background: var(--band);
+    color: var(--band-fg);
+    padding-block: clamp(56px, 9vw, 108px) clamp(48px, 7vw, 86px);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: auto -10% -55% 55%;
+    height: 90%;
+    background: radial-gradient(ellipse at center, rgba(211,162,80,0.16), transparent 68%);
+    pointer-events: none;
+  }
+  .hero-in { position: relative; max-width: 40ch; }
+  .hero h1 {
+    font-size: var(--step-5);
+    margin-block: 18px 20px;
+  }
+  .hero h1 .em { color: var(--brass); font-style: italic; }
+  .hero p {
+    color: var(--band-muted);
+    font-size: var(--step-1);
+    max-width: 46ch;
+    margin: 0 0 32px;
+  }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 24px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--brass);
+    background: var(--brass);
+    color: #17120A;
+    cursor: pointer;
+    font-family: var(--body);
+    transition: background 160ms ease, color 160ms ease;
+  }
+  .btn.ghost { background: transparent; color: var(--brass); }
+  .btn.ghost:hover { background: var(--brass); color: #17120A; }
+  .btn:hover { background: #E0B366; }
+
+  /* ── Search ──────────────────────────────────────────────────── */
+  .search {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--brass);
+    margin-top: -40px;
+    position: relative;
+    z-index: 3;
+    padding: 26px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+    gap: 18px;
+    align-items: end;
+    box-shadow: 0 18px 44px rgba(10, 24, 38, 0.14);
+  }
+  .field { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+  .field label {
+    font-size: 0.64rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  .field select, .field input {
+    font-family: var(--body);
+    font-size: 0.92rem;
+    color: var(--fg);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    padding: 10px 11px;
+    width: 100%;
+    border-radius: 0;
+  }
+  .field select { cursor: pointer; }
+
+  .results-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-block: 46px 20px;
+  }
+  .results-head h2 { font-size: var(--step-3); }
+  .count {
+    font-family: var(--data);
+    font-size: 0.84rem;
+    color: var(--fg-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 22px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    animation: rise 320ms ease both;
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .thumb {
+    aspect-ratio: 3 / 2;
+    position: relative;
+    display: block;
+    border-bottom: 1px solid var(--line);
+  }
+  .thumb svg { width: 100%; height: 100%; display: block; }
+  .status {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    background: rgba(10,24,38,0.86);
+    color: #E8EDF3;
+  }
+  .status.coming { background: rgba(211,162,80,0.94); color: #17120A; }
+  .status.pending { background: rgba(92,107,122,0.92); }
+
+  .card-body { padding: 17px 18px 18px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+  .price {
+    font-family: var(--data);
+    font-size: 1.28rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+    color: var(--fg);
+  }
+  .addr { font-size: 0.95rem; line-height: 1.4; }
+  .addr span { display: block; color: var(--fg-muted); font-size: 0.85rem; }
+  .specs {
+    display: flex;
+    gap: 14px;
+    font-family: var(--data);
+    font-size: 0.8rem;
+    color: var(--fg-muted);
+    font-variant-numeric: tabular-nums;
+    border-top: 1px solid var(--line);
+    padding-top: 11px;
+    margin-top: auto;
+    flex-wrap: wrap;
+  }
+  .attrib {
+    font-size: 0.68rem;
+    color: var(--fg-muted);
+    line-height: 1.45;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .idx-mark {
+    flex-shrink: 0;
+    width: 13px; height: 13px;
+    border: 1px solid var(--brass-dim);
+    color: var(--brass-dim);
+    font-size: 8px;
+    font-weight: 700;
+    display: grid;
+    place-items: center;
+    font-family: var(--body);
+    margin-top: 2px;
+  }
+
+  .empty {
+    grid-column: 1 / -1;
+    padding: 54px 24px;
+    text-align: center;
+    border: 1px dashed var(--line);
+    color: var(--fg-muted);
+  }
+
+  .idx-notice {
+    margin-top: 26px;
+    padding: 18px 20px;
+    border-left: 3px solid var(--brass);
+    background: var(--surface);
+    font-size: 0.76rem;
+    line-height: 1.65;
+    color: var(--fg-muted);
+  }
+
+  /* ── Sections ────────────────────────────────────────────────── */
+  section { padding-block: clamp(56px, 8vw, 96px); }
+  section.tight { padding-block: clamp(40px, 6vw, 64px); }
+
+  .band { background: var(--band); color: var(--band-fg); }
+  .band .lede, .band p { color: var(--band-muted); }
+  .band h2 { color: var(--band-fg); }
+
+  .proof {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .stat { background: var(--band); padding: 26px 22px; }
+  .stat b {
+    display: block;
+    font-family: var(--data);
+    font-size: clamp(1.6rem, 3vw, 2.15rem);
+    font-weight: 600;
+    color: var(--brass);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+  .stat span {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--band-muted);
+    margin-top: 8px;
+  }
+
+  .lede { font-size: var(--step-1); max-width: 62ch; color: var(--fg-muted); }
+
+  .two {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(30px, 5vw, 60px);
+    align-items: start;
+  }
+
+  .approach { display: grid; gap: 26px; margin-top: 34px; }
+  .approach article {
+    display: grid;
+    gap: 8px;
+    padding-left: 20px;
+    border-left: 2px solid var(--brass);
+  }
+  .approach h3 { font-size: var(--step-2); }
+  .approach p { margin: 0; color: var(--fg-muted); max-width: 58ch; }
+
+  /* ── Vendor gate ─────────────────────────────────────────────── */
+  .gate {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: clamp(26px, 4vw, 40px);
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 9px; margin: 22px 0 0; padding: 0; list-style: none; }
+  .chips li {
+    font-size: 0.76rem;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    color: var(--fg-muted);
+  }
+  .gate form { display: grid; gap: 14px; margin-top: 26px; }
+  .gate input, .gate textarea {
+    font-family: var(--body);
+    font-size: 0.94rem;
+    padding: 12px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    color: var(--fg);
+    width: 100%;
+    border-radius: 0;
+  }
+  .gate textarea { resize: vertical; min-height: 82px; }
+  .note { font-size: 0.75rem; color: var(--fg-muted); margin: 0; }
+
+  /* ── Footer ──────────────────────────────────────────────────── */
+  footer { background: var(--band); color: var(--band-fg); padding-block: 56px 40px; }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 34px;
+  }
+  footer h4 {
+    font-family: var(--body);
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--band-muted);
+    margin: 0 0 14px;
+    font-weight: 600;
+  }
+  footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  footer a { color: var(--band-muted); text-decoration: none; font-size: 0.88rem; }
+  footer a:hover { color: var(--band-fg); }
+  .legal {
+    margin-top: 40px;
+    padding-top: 26px;
+    border-top: 1px solid rgba(232,237,243,0.12);
+    font-size: 0.74rem;
+    line-height: 1.7;
+    color: var(--band-muted);
+    max-width: 92ch;
+  }
+  .badges {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 22px;
+    color: var(--band-muted);
+  }
+  .badge { display: flex; align-items: center; gap: 8px; font-size: 0.64rem; letter-spacing: 0.13em; text-transform: uppercase; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="ribbon">
+  Concept demo prepared for Michael Niemeyer — <span>not a live site. All listings below are sample data, not MLS records.</span>
+</div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="mark" href="#top" style="text-decoration:none">
+      <strong>Michael Niemeyer</strong>
+      <em>Realtor® · Northland KC</em>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#search">Home Search</a></li>
+        <li><a href="#approach">How I Work</a></li>
+        <li><a href="#vendors">Trusted Pros</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="nav-tel" href="tel:8168099323">816.809.9323</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="padding-bottom:88px">
+    <div class="wrap hero-in">
+      <p class="eyebrow">Liberty · Kearney · Gladstone · Parkville · Smithville</p>
+      <h1>My competitors sell houses.<br><span class="em">I guide people home.</span></h1>
+      <p>Twenty-seven families moved through Clay and Platte counties with me last year. Not one of them came from a lead form.</p>
+      <div class="cta-row">
+        <a class="btn" href="#search">Search Northland homes</a>
+        <a class="btn ghost" href="#contact">Book a strategy call</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="search" id="search">
+      <div class="field">
+        <label for="f-city">City</label>
+        <select id="f-city">
+          <option value="">All Northland</option>
+          <option>Liberty</option>
+          <option>Kearney</option>
+          <option>Gladstone</option>
+          <option>Parkville</option>
+          <option>Smithville</option>
+          <option>Platte City</option>
+          <option>Riverside</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-min">Min price</label>
+        <select id="f-min">
+          <option value="0">No min</option>
+          <option value="250000">$250,000</option>
+          <option value="325000">$325,000</option>
+          <option value="400000">$400,000</option>
+          <option value="500000">$500,000</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-max">Max price</label>
+        <select id="f-max">
+          <option value="99999999">No max</option>
+          <option value="325000">$325,000</option>
+          <option value="400000">$400,000</option>
+          <option value="500000">$500,000</option>
+          <option value="750000">$750,000</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-beds">Beds</label>
+        <select id="f-beds">
+          <option value="0">Any</option>
+          <option value="2">2+</option>
+          <option value="3">3+</option>
+          <option value="4">4+</option>
+          <option value="5">5+</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-baths">Baths</label>
+        <select id="f-baths">
+          <option value="0">Any</option>
+          <option value="2">2+</option>
+          <option value="3">3+</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="results-head">
+      <h2>Active in the Northland</h2>
+      <p class="count" id="count"></p>
+    </div>
+
+    <div class="grid" id="grid"></div>
+
+    <p class="idx-notice">
+      <strong>Sample data.</strong> A live site would display listings from Heartland MLS under an
+      approved IDX data license. Heartland requires the IDX mark and disclaimer on every listing,
+      listing-office attribution, and MLS compliance review of the search and detail pages before
+      launch. Information deemed reliable but not guaranteed.
+    </p>
+  </div>
+
+  <section class="band tight" style="margin-top:72px">
+    <div class="wrap">
+      <div class="proof">
+        <div class="stat"><b>$7.82M</b><span>2025 sales volume</span></div>
+        <div class="stat"><b>27</b><span>Families served</span></div>
+        <div class="stat"><b>5.0</b><span>Google · 36 reviews</span></div>
+        <div class="stat"><b>100%</b><span>By referral</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="wrap two">
+      <div>
+        <p class="eyebrow">How I work</p>
+        <h2 style="font-size:var(--step-4); margin-block:14px 18px">You are not a lead.</h2>
+        <p class="lede">
+          I don't buy internet leads and I don't run a call center. My business comes
+          from people who already trust me telling someone they love to call me. That
+          changes what I owe you.
+        </p>
+      </div>
+      <div class="approach">
+        <article>
+          <h3>The conversation comes before the house</h3>
+          <p>Before we look at a single listing we talk about the money, the timeline, and what you're actually trying to build. Sometimes that conversation ends with "don't move yet." That's a good outcome.</p>
+        </article>
+        <article>
+          <h3>I stay after closing</h3>
+          <p>Most agents disappear once the commission clears. I track your equity, your rate, and your renewal windows, and I call you when something changes that's worth acting on.</p>
+        </article>
+        <article>
+          <h3>My network is yours</h3>
+          <p>Lenders, inspectors, roofers, title. People I've watched work for years. You get the same list I'd give my own family, because you probably came from someone who is.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="vendors" style="padding-top:0">
+    <div class="wrap">
+      <div class="gate">
+        <p class="eyebrow">By introduction</p>
+        <h2 style="font-size:var(--step-3); margin-block:12px 14px">The Northland pros I actually use</h2>
+        <p class="lede" style="margin:0">
+          Every trade on this list has closed work for my clients and earned the spot. I share it
+          personally, not publicly — tell me what you need and I'll send the names along with who
+          to ask for.
+        </p>
+        <ul class="chips">
+          <li>Lenders</li><li>Home inspectors</li><li>Title &amp; escrow</li><li>Roofing</li>
+          <li>HVAC</li><li>Plumbing</li><li>Foundation</li><li>Electrical</li>
+          <li>Painters</li><li>Lawn &amp; tree</li><li>Moving</li><li>Insurance</li>
+        </ul>
+        <form onsubmit="event.preventDefault(); this.querySelector('.note').textContent='Demo form — nothing was sent.';">
+          <input type="text" placeholder="Your name" aria-label="Your name" required>
+          <input type="email" placeholder="Email" aria-label="Email" required>
+          <input type="tel" placeholder="Phone" aria-label="Phone">
+          <textarea placeholder="What are you looking for? (e.g. a roofer in Liberty)" aria-label="What are you looking for"></textarea>
+          <div><button class="btn" type="submit">Request the list</button></div>
+          <p class="note">Michael sends these himself. No autoresponder, no drip campaign.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="contact">
+    <div class="wrap two">
+      <div>
+        <p class="eyebrow">Let's talk</p>
+        <h2 style="font-size:var(--step-4); margin-block:14px 18px">Thirty minutes, no pitch.</h2>
+        <p class="lede">
+          Whether you're nine months out or under contract next week, the first call is the same:
+          what are you trying to do, and is now the right time to do it?
+        </p>
+        <div class="cta-row" style="margin-top:28px">
+          <a class="btn" href="tel:8168099323">Call 816.809.9323</a>
+          <a class="btn ghost" href="#contact">Book on my calendar</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-family:var(--body);font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--band-muted);margin:0 0 14px;font-weight:600">Direct</h4>
+        <ul style="list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:0.95rem">
+          <li><a href="tel:8168099323" style="font-family:var(--data);color:var(--brass);text-decoration:none">816.809.9323</a></li>
+          <li style="color:var(--band-muted)">RE/MAX Revolution</li>
+          <li style="color:var(--band-muted)">Serving Clay &amp; Platte Counties, Missouri</li>
+          <li><a href="https://www.instagram.com/michaelmoveskc/" target="_blank" rel="noopener noreferrer">@michaelmoveskc</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="mark" style="margin-bottom:14px">
+          <strong>Michael Niemeyer</strong>
+        </div>
+        <p style="color:var(--band-muted);font-size:0.88rem;max-width:28ch;margin:0">
+          Guiding families home across Missouri's Northland.
+        </p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#search">Home Search</a></li>
+          <li><a href="#approach">How I Work</a></li>
+          <li><a href="#vendors">Trusted Pros</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Communities</h4>
+        <ul>
+          <li><a href="#search">Liberty</a></li>
+          <li><a href="#search">Kearney</a></li>
+          <li><a href="#search">Parkville</a></li>
+          <li><a href="#search">Smithville</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:8168099323" style="font-family:var(--data)">816.809.9323</a></li>
+          <li><a href="https://www.instagram.com/michaelmoveskc/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="badges">
+      <span class="badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="1.5" y="1.5" width="21" height="21" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.2"></rect>
+          <text x="12" y="17.5" text-anchor="middle" font-family="Georgia, serif" font-size="15" font-weight="700" fill="currentColor">R</text>
+        </svg>
+        Realtor®
+      </span>
+      <span class="badge">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3.5 11.5 L12 4 L20.5 11.5"></path>
+          <path d="M5.5 11 V20 H18.5 V11"></path>
+          <line x1="9" y1="14" x2="15" y2="14"></line>
+          <line x1="9" y1="17" x2="15" y2="17"></line>
+        </svg>
+        Equal Housing Opportunity
+      </span>
+    </div>
+
+    <p class="legal">
+      <strong>Concept demo.</strong> This page was produced by Chilcode Systems as a design concept
+      for Michael Niemeyer. It is not his live website, the listings are invented sample data, and
+      no form on this page sends anything. Real estate licensee information, brokerage disclosures
+      required by the Missouri Real Estate Commission, and the Heartland MLS IDX disclaimer would
+      appear here on a production site.
+    </p>
+  </div>
+</footer>
+
+<script>
+  const LISTINGS = [
+    { price: 289000, addr: "412 N Water St",        city: "Liberty",     beds: 3, baths: 2,   sqft: 1642, mls: "2519438", office: "Reece Nichols — Liberty",        status: "active",  hue: 208 },
+    { price: 324900, addr: "1808 Sycamore Ridge Dr", city: "Kearney",     beds: 4, baths: 3,   sqft: 2210, mls: "2521004", office: "Keller Williams KC North",       status: "active",  hue: 196 },
+    { price: 265000, addr: "6207 N Oak Trafficway",  city: "Gladstone",   beds: 3, baths: 2,   sqft: 1488, mls: "2518877", office: "Platinum Realty",                status: "coming",  hue: 32  },
+    { price: 549000, addr: "9114 Riss Lake Dr",      city: "Parkville",   beds: 5, baths: 4,   sqft: 3860, mls: "2517220", office: "Compass Realty Group",           status: "active",  hue: 214 },
+    { price: 412500, addr: "1421 Bridgewater Ct",    city: "Smithville",  beds: 4, baths: 3,   sqft: 2704, mls: "2520661", office: "RE/MAX Revolution",              status: "active",  hue: 168 },
+    { price: 239900, addr: "308 SE 3rd St",          city: "Platte City", beds: 3, baths: 2,   sqft: 1330, mls: "2519955", office: "Chartwell Realty",               status: "pending", hue: 40  },
+    { price: 675000, addr: "5502 NW Waukomis Dr",    city: "Riverside",   beds: 4, baths: 4,   sqft: 3420, mls: "2516742", office: "Reece Nichols — Parkville",      status: "active",  hue: 204 },
+    { price: 355000, addr: "2719 Shoal Creek Pkwy",  city: "Liberty",     beds: 4, baths: 3,   sqft: 2380, mls: "2521330", office: "RE/MAX Revolution",              status: "active",  hue: 152 },
+    { price: 298500, addr: "704 E 19th St",          city: "Kearney",     beds: 3, baths: 2,   sqft: 1795, mls: "2520188", office: "Weichert, Realtors",             status: "active",  hue: 24  },
+    { price: 469000, addr: "12406 NW Wildwood Ln",   city: "Parkville",   beds: 4, baths: 3,   sqft: 2960, mls: "2518003", office: "Keller Williams Realty Partners", status: "coming",  hue: 190 },
+    { price: 219000, addr: "5310 N Cherry St",       city: "Gladstone",   beds: 2, baths: 2,   sqft: 1104, mls: "2521577", office: "EXP Realty",                     status: "active",  hue: 46  },
+    { price: 735000, addr: "16800 Collins Rd",       city: "Smithville",  beds: 5, baths: 4,   sqft: 4180, mls: "2515499", office: "Reece Nichols — Northland",      status: "active",  hue: 220 },
+  ];
+
+  const STATUS_LABEL = { active: "Active", coming: "Coming Soon", pending: "Pending" };
+  const usd = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+
+  // Placeholder artwork. Deliberately abstract — these are not photographs of real
+  // homes, and nothing here should be mistaken for MLS media.
+  function art(hue, i) {
+    const sky  = `hsl(${hue}, 30%, ${22 + (i % 3) * 5}%)`;
+    const land = `hsl(${hue}, 24%, ${13 + (i % 2) * 4}%)`;
+    const roof = `hsl(${(hue + 24) % 360}, 34%, ${30 + (i % 4) * 4}%)`;
+    return `
+      <svg viewBox="0 0 300 200" role="img" aria-label="Illustration placeholder">
+        <rect width="300" height="200" fill="${sky}"></rect>
+        <circle cx="${232 + (i % 3) * 12}" cy="${46 + (i % 4) * 7}" r="15" fill="#D3A250" opacity="0.5"></circle>
+        <path d="M0 ${150 + (i % 3) * 8} Q 75 ${128 + (i % 4) * 6} 150 ${146 + (i % 2) * 9} T 300 ${138 + (i % 3) * 7} V200 H0 Z" fill="${land}"></path>
+        <g transform="translate(${86 + (i % 4) * 9}, ${88 + (i % 3) * 6})">
+          <path d="M0 34 L34 6 L68 34 Z" fill="${roof}"></path>
+          <rect x="8" y="34" width="52" height="40" fill="${roof}" opacity="0.72"></rect>
+          <rect x="27" y="52" width="14" height="22" fill="#D3A250" opacity="0.62"></rect>
+        </g>
+      </svg>`;
+  }
+
+  const grid = document.getElementById("grid");
+  const count = document.getElementById("count");
+  const controls = ["f-city", "f-min", "f-max", "f-beds", "f-baths"].map((id) => document.getElementById(id));
+
+  function render() {
+    const [city, min, max, beds, baths] = controls.map((c) => c.value);
+    const rows = LISTINGS.filter((l) =>
+      (!city || l.city === city) &&
+      l.price >= +min && l.price <= +max &&
+      l.beds >= +beds && l.baths >= +baths
+    );
+
+    count.textContent = rows.length === LISTINGS.length
+      ? `${rows.length} sample listings`
+      : `${rows.length} of ${LISTINGS.length} sample listings`;
+
+    if (!rows.length) {
+      grid.innerHTML = `<div class="empty">Nothing matches those filters right now.<br>On a live site Michael would set up a saved search and text you when one lands.</div>`;
+      return;
+    }
+
+    grid.innerHTML = rows.map((l, i) => `
+      <article class="card" style="animation-delay:${Math.min(i * 35, 280)}ms">
+        <div class="thumb">
+          ${art(l.hue, i)}
+          <span class="status ${l.status}">${STATUS_LABEL[l.status]}</span>
+        </div>
+        <div class="card-body">
+          <p class="price">${usd.format(l.price)}</p>
+          <p class="addr">${l.addr}<span>${l.city}, MO</span></p>
+          <div class="specs">
+            <span>${l.beds} bd</span>
+            <span>${l.baths} ba</span>
+            <span>${l.sqft.toLocaleString("en-US")} sqft</span>
+          </div>
+          <p class="attrib"><span class="idx-mark" aria-hidden="true">I</span>
+            MLS #${l.mls} · Listed by ${l.office}
+          </p>
+        </div>
+      </article>`).join("");
+  }
+
+  controls.forEach((c) => c.addEventListener("change", render));
+  render();
+</script>
+
+</body>
+</html>

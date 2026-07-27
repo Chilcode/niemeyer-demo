@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /
+
+# This is a private design concept for a real, licensed real estate agent.
+# It shows invented listings alongside his real name and brokerage. It must
+# never be indexed or surfaced in a search for him.
