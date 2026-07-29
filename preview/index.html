@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Michael Niemeyer — REALTOR® | Kansas City Northland</title>
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Preview build. Michael Niemeyer, REALTOR with RE/MAX Revolution in the Kansas City Northland.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1D2B2E; --river:#2F5D63; --amber:#C08A3E;
+    --haze:#E9EAE4; --slate:#5C6B6B; --paper:#F4F5F1; --white:#fff;
+    --display:'Fraunces',Georgia,'Times New Roman',serif;
+    --body:'Karla',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+    --wrap:1120px; --read:66ch;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.68;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.12;text-wrap:balance;margin:0;letter-spacing:-0.01em}
+  p{margin:0 0 1.1em}
+  a{color:var(--river)}
+  .wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:24px}
+  .eyebrow{font-family:var(--body);font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--river);margin:0 0 .9em}
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+
+  .ribbon{background:var(--ink);color:#E7E9E4;font-size:.78rem;text-align:center;padding:9px 24px}
+  .ribbon b{color:var(--amber);font-weight:600}
+
+  /* ── nav ─────────────────────────────────────── */
+  .nav{background:var(--river);color:var(--white)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-block:14px}
+  .brand{display:flex;flex-direction:column;line-height:1.25}
+  .brand b{font-family:var(--display);font-size:1.22rem;font-weight:600}
+  .brand span{font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+  .nav-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .hours{font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.32);padding:5px 10px;border-radius:2px;white-space:nowrap}
+  .nav-tel{color:var(--white);text-decoration:none;font-weight:600;font-size:1.02rem;white-space:nowrap}
+  .nav-tel:hover{text-decoration:underline}
+  .nav-links{display:flex;gap:20px;list-style:none;margin:0;padding:0}
+  .nav-links a{color:rgba(255,255,255,.86);text-decoration:none;font-size:.9rem}
+  .nav-links a:hover{color:var(--white)}
+
+  /* ── buttons ─────────────────────────────────── */
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--body);font-weight:600;font-size:.95rem;padding:15px 30px;border:0;border-radius:2px;text-decoration:none;cursor:pointer;transition:filter .15s ease}
+  .btn-primary{background:var(--amber);color:var(--ink)}   /* ink on amber ~5.3:1 — never white */
+  .btn-secondary{background:var(--river);color:var(--white)}
+  .btn:hover{filter:brightness(1.06)}
+  .reassure{font-size:.9rem;color:var(--slate);margin:.85em 0 0}
+
+  /* ── hero ────────────────────────────────────── */
+  .hero{background:var(--white);border-bottom:1px solid #E2E4DE;padding-block:clamp(48px,7vw,86px)}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,60px);align-items:center}
+  @media(max-width:880px){.hero-grid{grid-template-columns:1fr}}
+  .hero h1{font-size:clamp(2.5rem,5.2vw,4rem);margin-bottom:.42em}
+  .hero .intro{font-size:1.16rem;max-width:52ch}
+  .tagline{font-family:var(--display);font-size:1.32rem;color:var(--river);margin:1.3em 0 1.5em;max-width:32ch;line-height:1.35}
+  .photo{aspect-ratio:4/5;background:var(--haze);border:1px solid #DCDED7;display:grid;place-items:center;text-align:center;padding:22px}
+  .photo span{font-size:.8rem;color:var(--slate);max-width:24ch;line-height:1.5}
+
+  /* ── sections ────────────────────────────────── */
+  section{padding-block:clamp(48px,7vw,84px)}
+  .band{background:var(--haze)}
+  .sec-head{max-width:var(--read);margin-bottom:2.2em}
+  .sec-head h2{font-size:clamp(1.85rem,3.4vw,2.6rem)}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(288px,1fr));gap:20px}
+  .card{background:var(--white);border:1px solid #E2E4DE;padding:28px 26px;display:flex;flex-direction:column}
+  .band .card{border-color:#DCDED7}
+  .card h3{font-size:1.3rem;margin-bottom:.7em;color:var(--river)}
+  .card p{font-size:1rem}
+  .card .go{margin-top:auto;padding-top:.5em;font-weight:600;font-size:.95rem;color:var(--river);text-decoration:none;border-bottom:2px solid var(--amber);align-self:flex-start;padding-bottom:2px}
+
+  /* ── proof ───────────────────────────────────── */
+  .fivestar{font-family:var(--display);font-size:1.4rem;color:var(--river);margin-bottom:1.6em}
+  .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:2.4em}
+  blockquote{margin:0;padding-left:20px;border-left:3px solid var(--amber);font-size:1rem}
+  blockquote p{margin-bottom:.7em}
+  blockquote cite{font-style:normal;font-weight:600;font-size:.88rem;color:var(--slate)}
+  .realtrends{max-width:var(--read);font-size:1.04rem}
+
+  /* ── offers ──────────────────────────────────── */
+  .offer{background:var(--white);border:1px solid #E2E4DE;border-top:3px solid var(--river);padding:clamp(28px,4vw,44px)}
+  .offer + .offer{margin-top:24px}
+  .offer h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:.5em}
+  .offer .kicker{font-size:1.1rem;color:var(--river);font-family:var(--display);margin-bottom:1.2em}
+  .offer ul{padding-left:1.2em;margin:0 0 1.2em;max-width:var(--read)}
+  .offer li{margin-bottom:.45em}
+  .offer p{max-width:var(--read)}
+  .keyword{font-size:.92rem;color:var(--slate);margin:.85em 0 0}
+  .keyword b{color:var(--ink)}
+
+  /* ── steps ───────────────────────────────────── */
+  .steps{display:grid;gap:26px;max-width:var(--read)}
+  .step h3{font-size:1.18rem;margin-bottom:.45em}
+  .step p{margin:0}
+
+  .closing{max-width:46ch}
+  .closing h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:1em}
+
+  /* ── footer ──────────────────────────────────── */
+  footer{background:var(--ink);color:#D7DBD6;padding-block:46px 34px;font-size:.92rem}
+  footer a{color:#D7DBD6;text-decoration:none}
+  footer a:hover{color:var(--white);text-decoration:underline}
+  .fmeta{display:flex;flex-wrap:wrap;gap:8px 14px;margin-bottom:18px}
+  .fmeta span{white-space:nowrap}
+  .flinks{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.14)}
+  .ftag{font-family:var(--display);color:var(--white);font-size:1.05rem;margin-bottom:20px}
+  .pending{font-size:.8rem;color:#9AA5A0;border:1px dashed rgba(255,255,255,.28);padding:12px 14px;max-width:78ch}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="ribbon">Preview build for review — <b>not live.</b> Photography is placeholder; forms are not connected yet.</div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <div class="brand">
+      <b>Michael Niemeyer</b>
+      <span>REALTOR® · RE/MAX Revolution</span>
+    </div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="#insider">Insider Access</a></li>
+        <li><a href="#snapshot">Equity Snapshot</a></li>
+      </ul>
+      <span class="hours">Daily 8AM–9PM</span>
+      <a class="nav-tel" href="tel:8168099323">816-809-9323</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- 1. Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Kansas City Northland</p>
+        <h1>Your Northland Neighbor.</h1>
+        <p class="intro">I'm Michael, a REALTOR® here in the Kansas City Northland. I've lived here my whole life, so Liberty, Kearney, Parkville, and everywhere in between aren't just my market, they're my roots. I help families buy and sell homes here, with real numbers and no pressure.</p>
+        <p class="tagline">My competitors sell houses. I guide people home.</p>
+        <a class="btn btn-primary" href="#talk">Let's talk about your situation</a>
+        <p class="reassure">No pitch, no pressure. Just a casual conversation.</p>
+      </div>
+      <div class="photo"><span>Hero portrait — Michael outdoors, Northland setting, space for headline. Tier one on the shot list.</span></div>
+    </div>
+  </section>
+
+  <!-- 2. Where are you right now? -->
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head"><h2>Where are you right now?</h2></div>
+      <div class="cards">
+        <article class="card">
+          <h3>Buying your first home</h3>
+          <p>You just sent another rent payment. Twelve of those a year, every one of them paying off somebody else's house.</p>
+          <p>You don't need a pep talk or a sales pitch. You need real numbers on your real scenario. Sometimes the math says not yet, and I'll tell you that honestly. But you deserve to know which one it is.</p>
+          <a class="go" href="#insider">See homes the way I see them →</a>
+        </article>
+        <article class="card">
+          <h3>The house that isn't working anymore</h3>
+          <p>You loved this house once. Something has changed since then, and now you walk through it knowing.</p>
+          <p>Maybe it's the commute, the family, the layout, the neighborhood, or something you can't quite name. It doesn't really matter which. What matters is what comes next, and whether there's a way to get there that doesn't turn your life upside down.</p>
+          <p>There is. And figuring that out is exactly the conversation I'm built for.</p>
+          <a class="go" href="#talk">Start with a casual conversation →</a>
+        </article>
+        <article class="card">
+          <h3>Just curious what your home is worth</h3>
+          <p>You've probably looked it up. Most people have. And then you wondered how much that number is actually worth.</p>
+          <p>It's a guess made by a computer that has never seen your kitchen. The real number comes from what houses in your neighborhood actually sold for.</p>
+          <p>For most families, the house is where most of their net worth lives. You check the balance on everything else. This one's worth knowing too, whether you move in six months, six years, or never.</p>
+          <a class="go" href="#snapshot">Get your free Equity Snapshot →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Proof -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><h2>Ask the people who've done this with me</h2></div>
+      <p class="fivestar">Every review I've received is five stars.</p>
+      <div class="quotes">
+        <blockquote>
+          <p>"He went as far as crawling in crawl spaces filled with water and finding materials to get into attics with no access. He never suggested I increase my budget which I appreciated and made my experience comfortable!"</p>
+          <cite>— Kathryn Kirtley</cite>
+        </blockquote>
+        <blockquote>
+          <p>"Although I was hesitant to trust a realtor again, Michael stands out from the realtor sharks. … He went above and beyond, organizing extra services and even cleaning out my basement with his own two hands. We received a much better offer on the house, and now it's officially sold."</p>
+          <cite>— Kaylee M.</cite>
+        </blockquote>
+        <blockquote>
+          <p>"His communication style was open and honest, his responses to any questions I had were quick, and he always picked up when I called him. I really appreciated all the time he took to make sure I fully understood what was going on throughout the whole process."</p>
+          <cite>— Andrew Bielby</cite>
+        </blockquote>
+      </div>
+      <p class="realtrends">I'm also ranked in the top 1.5% of REALTORS® nationwide by RealTrends Verified, which pulls actual closed transactions rather than handing out plaques to anyone with a credit card. For me, in 2025, those actual numbers were 27 closings and $7.82 million in homes bought and sold. But the reviews matter more to me. This business runs on trust, and that's the only part you can't buy.</p>
+    </div>
+  </section>
+
+  <!-- 4 & 5. Offers -->
+  <section class="band">
+    <div class="wrap">
+
+      <div class="offer" id="insider">
+        <h2>Insider Access</h2>
+        <p class="kicker">See homes the way I see them, not the way the online portals show them.</p>
+        <p>It's free. I'll build you a personalized search straight from the MLS, plus access to my client app. Same listings you're already scrolling, but with the documents attached: the seller's disclosure, HOA information, sometimes even inspection reports from a previous deal. Whatever the listing agent has uploaded, you can see it.</p>
+        <p>That's the part the portals don't give you. Photos show you the kitchen. Documents tell you about the roof.</p>
+        <p>And when something catches your eye, I can usually get you inside within 24 hours.</p>
+        <p>No pitch, no pressure, no cost. Whether you're six weeks or six years out, you should be looking at the whole picture.</p>
+        <a class="btn btn-secondary" href="#talk">Get Insider Access</a>
+        <p class="keyword">Or text <b>INSIDER</b> to 816-809-9323</p>
+      </div>
+
+      <div class="offer" id="snapshot">
+        <h2>Your free Equity Snapshot</h2>
+        <p class="kicker">You already know the websites are guessing. Here's the real number.</p>
+        <p>I pull actual sold data from your neighborhood and send you three things:</p>
+        <ul>
+          <li>What your home would likely sell for today</li>
+          <li>What the recent sales nearby mean for your value</li>
+          <li>Your estimated equity position after selling costs</li>
+        </ul>
+        <p>You'll have it within 24 hours.</p>
+        <p>Zero obligation and zero follow up pressure. This is simply useful to know, and if you never do anything with it, that's fine by me.</p>
+        <a class="btn btn-secondary" href="#talk">Get my Equity Snapshot</a>
+        <p class="keyword">Or text <b>SNAPSHOT</b> and your address to 816-809-9323</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. Why I do this the way I do -->
+  <section>
+    <div class="wrap hero-grid">
+      <div class="photo" style="aspect-ratio:1/1"><span>One real photo of Michael. Never stock.</span></div>
+      <div>
+        <h2 style="font-size:clamp(1.8rem,3.2vw,2.5rem);margin-bottom:.8em">Why I do this the way I do</h2>
+        <p>Before real estate, I spent almost ten years as a personal trainer. Different industry, same job. Both are really about helping people get to a place they couldn't quite see for themselves yet.</p>
+        <p>That's where my approach comes from. Listen first. Educate without an agenda. Never push.</p>
+        <p>And the Northland part isn't a marketing line. I know which commutes actually work, which streets flood, which neighborhoods feel like home the second you turn in. That's the stuff no portal can tell you.</p>
+        <p><a href="about.html" style="font-weight:600;border-bottom:2px solid var(--amber);text-decoration:none;padding-bottom:2px">Read my story →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. What working with me looks like -->
+  <section class="band" id="talk">
+    <div class="wrap">
+      <div class="sec-head"><h2>What working with me looks like</h2></div>
+      <div class="steps">
+        <div class="step">
+          <h3>Step 1. A casual conversation.</h3>
+          <p>We sit down or hop on a call, and I listen. Your goals, your timeline, your budget. It's free, it takes about 20 minutes, and there's no commitment.</p>
+        </div>
+        <div class="step">
+          <h3>Step 2. A plan built for your situation.</h3>
+          <p>Buying, selling, or both at once, what happens next depends entirely on where you are. You'll leave knowing your real numbers and your actual next step, not a generic checklist.</p>
+        </div>
+        <div class="step">
+          <h3>Step 3. I guide, you decide.</h3>
+          <p>I handle the strategy, the negotiating, and the deadlines. You make the calls that matter.</p>
+        </div>
+        <div class="step">
+          <p>And throughout all of it, you'll never have to chase me for an update. If something changes, you hear it from me first. If nothing's changed, you'll hear that too. My phone's on daily, 8AM to 9PM, and I'm the one who answers.</p>
+          <p>After we talk, it's either going to make sense for you or it's not. And honestly, either way, that's cool for me.</p>
+        </div>
+      </div>
+      <p style="margin-top:2em"><a class="btn btn-primary" href="#talk">Let's talk about your situation</a></p>
+      <p class="reassure">Free, about 20 minutes, zero pressure.</p>
+    </div>
+  </section>
+
+  <!-- 8. Final word -->
+  <section>
+    <div class="wrap closing">
+      <h2>You don't need to have it figured out before you reach out. That's kind of the point.</h2>
+      <a class="btn btn-primary" href="#talk">Let's talk about your situation</a>
+      <p class="reassure">Or text me: 816-809-9323</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- 9. Footer -->
+<footer>
+  <div class="wrap">
+    <div class="fmeta">
+      <span>Michael Niemeyer, REALTOR®</span><span>|</span>
+      <span>RE/MAX Revolution</span><span>|</span>
+      <span>Cell <a href="tel:8168099323">816-809-9323</a></span><span>|</span>
+      <span>Office <a href="tel:8167819080">816-781-9080</a></span><span>|</span>
+      <span><a href="mailto:michael@therevolution1.com">michael@therevolution1.com</a></span><span>|</span>
+      <span><a href="https://www.instagram.com/michaelmoveskc/" target="_blank" rel="noopener noreferrer">@michaelmoveskc</a></span>
+    </div>
+    <div class="flinks">
+      <a href="about.html">About</a>
+      <a href="#insider">Insider Access</a>
+      <a href="#snapshot">Equity Snapshot</a>
+    </div>
+    <p class="ftag">My competitors sell houses. I guide people home.</p>
+    <p class="pending">Pending — required Missouri brokerage identification and MREC disclosure language, plus RE/MAX logo placement, supplied by Stephen. Layout space reserved; wording deliberately not drafted here. Articles and Areas I Serve links appear once those pages exist.</p>
+  </div>
+</footer>
+
+</body>
+</html>
