@@ -1,9 +1,16 @@
-> ## ▶ ACTIVE BUILD — read this first
+> ## ⛔ RETIRED — 2026-07-29
 >
-> **Demo v2: fold in his real content.** The full spec is `.planning/HANDOFF.md`.
-> Read it and `README.md` before editing.
+> This concept demo is **superseded**. Michael delivered his own specification (see
+> `../niemeyer/context/`), and it corrects most of what this demo proposed: "King of the
+> Northland" and all crown/territory language are banned, the palette is River Bluff rather
+> than Royals blue-and-gold, and the site uses no IDX — so the sample-listing search here
+> represents a feature that will never be built.
 >
-> You own this repo. Do not write in `../realtor-chassis`, `../niemeyer`, or `../cch`.
+> **Do not update this demo.** The real build is `../niemeyer/.planning/prompts/05-build-site.md`.
+>
+> It stays live only because Michael may still have the link. Take it down once the real site
+> ships. The `noindex` tags, `robots.txt`, and concept ribbon must stay until then — this page
+> pairs a licensed agent's real name with invented listings.
 
 **See `../context/PLAYBOOK.md` for cross-project conventions.**
 
